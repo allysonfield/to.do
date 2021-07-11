@@ -12,18 +12,23 @@ export function Header({ tasksCounter }: HeaderProps) {
   // const tasksCounterText = TODO render 'tarefa' if tasksCounter equals 1, otherwise render 'tarefas'
   const tasksCounterText = (e: number) => {
     if(e > 1){
-      return 'Tarefas'
+      return 'tarefas'
     }
 
-    return 'Tarefa'
+    
+
+    return 'tarefa'
   }
   return (
     <View style={styles.container}>
       <Image source={logoImg} />
       
-      {tasksCounter > 0 && <View style={styles.tasks}>
+      {tasksCounter > 0 ? <View style={styles.tasks}>
         <Text style={styles.tasksCounter}>Você tem </Text>
         <Text style={styles.tasksCounterBold}>{tasksCounter} {tasksCounterText(tasksCounter)}</Text>
+      </View> : <View style={styles.tasks}>
+        <Text style={styles.tasksCounter}>Você tem </Text>
+        <Text style={styles.tasksCounterBold}>{tasksCounter} tarefas</Text>
       </View>}
     </View>
   )

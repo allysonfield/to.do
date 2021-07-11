@@ -17,13 +17,14 @@ export function Home() {
       id: String(new Date().getTime()),
       title: newTaskTitle,
     }
-   newTaskTitle !== '' && setTasks(old => [...old, data])
+   newTaskTitle !== '' && setTasks(old => [...old, data]);
   }
 
-  function handleToggleTaskDone(index: number) {
-    const aux = tasks;
-    aux[index].done = !aux[index].done;
-    setTasks([...tasks])
+  function handleToggleTaskDone(id: string) {
+   const index = tasks.findIndex(i => i.id === id);
+   const aux = tasks;
+   aux[index].done = !aux[index].done
+   setTasks([...aux]);
     //TODO - toggle task done if exists
   }
 

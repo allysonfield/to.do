@@ -14,7 +14,7 @@ export interface Task {
 
 interface TasksListProps {
   tasks: Task[];
-  toggleTaskDone: (index: number) => void;
+  toggleTaskDone: (id: string) => void;
   removeTask: (id: string) => void;
 }
 
@@ -30,7 +30,7 @@ export function TasksList({ tasks, toggleTaskDone, removeTask }: TasksListProps)
           <ItemWrapper index={index}>
             <View>
               <TouchableOpacity
-              onPress={()=>toggleTaskDone(index)}
+              onPress={()=>toggleTaskDone(item.id)}
                 testID={`button-${index}`}
                 activeOpacity={0.7}
                 style={styles.taskButton}
